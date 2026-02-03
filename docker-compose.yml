@@ -1,0 +1,34 @@
+services:
+  app:
+    build: .
+    container_name: crud-app
+    ports:
+      - "4000:4000"
+    env_file:
+      - .env
+    depends_on:
+      - prom-server
+      - loki
+
+  prom-server:
+    image: prom/prometheus
+    container_name: prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus-config.yml:/etc/prometheus/prometheus.yml
+
+  grafana:
+    image: grafana/grafana-oss
+    container_name: grafana
+    ports:
+      - "3003:3000"
+    depends_on:
+      - prom-server
+      - loki
+
+  loki:
+    image: grafana/loki
+    container_name: loki
+    ports:
+      - "3100:3100"

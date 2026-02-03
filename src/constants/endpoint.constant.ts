@@ -1,0 +1,10 @@
+export const CRUD = "/crud";
+export const AUTH = "/auth";
+export const ACTUATOR = "/actuator";
+export const ROOT = "/";
+export const ID = "/:id";
+export const SIGNUP = "/signup";
+export const LOGIN = "/login";
+export const LOGOUT = "/logout";
+export const USER = "/user";
+export const GENERATE_TOKENS = "/generate-token";

@@ -1,0 +1,95 @@
+npm init -y
+
+package.json
+"main": "./dist/server.js",
+"scripts": {
+    "build:dev": "tsc -w",
+    "start:dev": "nodemon ./dist/server.js",
+    "build": "tsc",
+    "start": "node ./dist/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+
+
+  tsconfig.json
+{
+  "compilerOptions": {
+    "target": "ES2017",
+    "module": "Node16",
+    "esModuleInterop": true,
+    "rootDir": "src",
+    "outDir": "dist",
+    "allowJs": true,
+    "declaration": true,
+    "allowSyntheticDefaultImports": true,
+    "noImplicitAny": true,
+    "sourceMap": true,
+    "moduleResolution": "Node16",
+    "resolveJsonModule": true,
+    "skipLibCheck": true
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"]
+}
+
+
+command
+npm i express
+npm i -D @types/express @types/node tsx typescript nodemon
+
+
+dd-trace
+for data dog
+
+=============================================================== 
+
+morgen for http logger
+winston for info error worn custome error like console.log()
+
+=============================================================== 
+https://gist.github.com/piyushgarg-dev/7c4016b12301552b628bbac21a11e6ab
+
+prometheus is matrix tool for monitoring
+https://prometheus.io/
+npm i prom-client
+
+app.config.ts
+import { collectDefaultMetrics, register } from "prom-client";
+
+    // it will collect over machine metrics
+    collectDefaultMetrics({
+      register: register,
+    });
+
+    // create a route for metrics
+    this.app.get("/metrics", async (req: Request, res: Response) => {
+      res.setHeader("Content-Type", register.contentType);
+      res.send(await register.metrics());
+    });
+
+
+winston-loki
+for logger.info error warn and allowJs
+
+npm i winston winston-loki
+
+    new LokiTransport({
+      host: "http://192.168.1.114:3100",
+      labels: {
+        app: "my-app",
+      },
+    }),
+all setup done
+
+
+=============================================================== 
+redis upstash
+npm i @upstash/redis
+
+import { Redis } from "@upstash/redis";
+
+export const redis = new Redis({
+  url: process.env.REDIS_URL!,
+  token: process.env.REDIS_TOKEN!,
+});
+
