@@ -30,3 +30,7 @@ export const AWS_COGNITO_CLIENT_SECRET =
 export const AWS_COGNITO_REGION = process.env.AWS_COGNITO_REGION || "";
 export const AWS_SECRET_KEY = process.env.AWS_SECRET_KEY || "";
 export const AWS_IV_KEY = process.env.AWS_IV_KEY || "";
+
+// ld
+export const LAUNCH_DARKLY_SDK_KEY = process.env.LAUNCH_DARKLY_SDK_KEY || "";
+export const LAUNCH_DARKLY_ENABLE = process.env.LAUNCH_DARKLY_ENABLE || "true";

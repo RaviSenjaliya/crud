@@ -1,7 +1,8 @@
 import { Router } from "express";
-import { AUTH, CRUD } from "../constants/endpoint.constant";
+import { AUTH, CRUD, USER } from "../constants/endpoint.constant";
 import authRoutes from "./auth/auth.routes";
 import indexMiddlewares from "./index.middlewares";
+import userRoutes from "./user/user.routes";
 
 class IndexRoutes {
   router: Router;
@@ -18,6 +19,7 @@ class IndexRoutes {
     ];
 
     this.router.use(`${CRUD}${AUTH}`, validationMiddlewares, authRoutes);
+    this.router.use(`${CRUD}${USER}`, validationMiddlewares, userRoutes);
   }
 }
 

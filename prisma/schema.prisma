@@ -26,6 +26,11 @@ model User {
   @@map("tbl_user")
 }
 
+model Test {
+  id   String @id @default(cuid()) @map("_id")
+  name String
+}
+
 enum Role {
   ADMIN
   USER

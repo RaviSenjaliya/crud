@@ -7,6 +7,7 @@ export const MISSING_COGNITO_IAM_CREDENTIALS = "credentials_provider_error";
 export const USER_NOT_CONFIRMED = "UserNotConfirmedException";
 export const USER_NAME_EXISTS = "UsernameExistsException";
 
+export const UNAUTHORIZED_MESSAGE = "You are not authorized for this request";
 export const USERNAME_ALREADY_EXIST =
   "This email address has already been registered. Try a different email address.";
 export const USER_NOT_CONFIRMED_MSG =
